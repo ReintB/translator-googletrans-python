@@ -7,7 +7,7 @@ file_name = "flash_cards.txt"
 
 def exit_if_cards_file_does_not_exist():
     if not os.path.exists(file_name):
-        print("No cards avaible yet. Please first create new ones.")
+        print("No cards available yet. Please first create new ones.")
         exit()
 
 def retrive_cards_from_file():
