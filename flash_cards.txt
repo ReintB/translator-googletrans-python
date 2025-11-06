@@ -1,1 +1,1 @@
-[('chair', 'kursi'), ('table', 'meja')]
+[('chair', 'kursi'), ('table', 'meja'), ('mouse', 'mouse'), ('pen', 'pena')]
