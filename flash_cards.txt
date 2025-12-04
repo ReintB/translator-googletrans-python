@@ -1,1 +1,1 @@
-[('chair', 'kursi'), ('table', 'meja'), ('mouse', 'mouse'), ('pen', 'pena'), ('sisir', 'sisir')]
+[('bottle', 'botol'), ('chair', 'kursi'), ('table', 'meja'), ('laptop', 'laptop'), ('pen', 'pena'), ('bread', 'roti'), ('keyboard', 'papan ketik'), ('wallet', 'dompet')]

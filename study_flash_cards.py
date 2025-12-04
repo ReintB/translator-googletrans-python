@@ -24,13 +24,22 @@ def retrieve_cards_from_file():
 
   return cards
 
+def validate_guess_input(prompt):
+  """Memvalidasi input tebakan, memastikan tidak kosong"""
+  while True:
+    answer = input(prompt).strip()
+    if answer:
+      return answer
+    else:
+      print("Input tidak boleh kosong. Silakan masukkan jawaban Anda.")
+
 def guess_cards(cards):
   while len(cards) > 0:
     index = random.randint(0, len(cards) - 1)
     word_en = cards[index][0]
     word_id = cards[index][1]
 
-    answer_raw = input(word_en + "? ")
+    answer_raw = validate_guess_input(word_en + "? ")
 
     normalized_answer = answer_raw.strip().lower()
     normalized_correct_id = word_id.strip().lower()

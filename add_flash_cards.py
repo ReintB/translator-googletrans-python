@@ -32,6 +32,17 @@ def display_cards(cards):
   for i, card in enumerate(cards):
     print(f"{i+1}. {card[0]}: {card[1]}")
 
+def validate_yes_no_input(prompt):
+  """Memvalidasi input y/n dan mengembalikan True untuk 'y' dan False untuk 'n'"""
+  while True:
+    answer = input(prompt).strip().lower()
+    if answer == 'y' or answer == 'yes':
+      return True
+    elif answer == 'n' or answer == 'no':
+      return False
+    else:
+      print("Input tidak valid. Silakan masukkan 'y' untuk ya atau 'n' untuk tidak.")
+
 async def create_new_card():
   global cards
   while True:
@@ -47,18 +58,17 @@ async def create_new_card():
   new_card = (word_en, word_id)
   print(new_card)
 
-  answer = input("Apakah anda ingin menyimpan kartu ini? (y/n): ")
-  if answer.lower() == 'y':
+  if validate_yes_no_input("Apakah anda ingin menyimpan kartu ini? (y/n): "):
     cards.append(new_card)
 
 def save_cards_to_file():
   global cards
-  answer = input("Apakah anda ingin menyimpan semua kartu ke file? (y/n): ")
-  if answer.lower() == 'y':
+  if validate_yes_no_input("Apakah anda ingin menyimpan semua kartu ke file? (y/n): "):
     print("Menyimpan kartu ke file...")
     try:
       with open(file_name, "w") as f:
         f.write(str(cards))
+      print("Kartu berhasil disimpan ke file.")
     except Exception as e:
       print(f"Gagal menyimpan ke file: {e}")
 
@@ -69,8 +79,7 @@ async def main():
 
   while True:
     await create_new_card()
-    answer = input("Apakah anda ingin menerjemahkan kata lain? (y/n): ")
-    if answer.lower() == 'n':
+    if not validate_yes_no_input("Apakah anda ingin menerjemahkan kata lain? (y/n): "):
       break
 
   print(cards)
